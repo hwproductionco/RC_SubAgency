@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8">
+<title>My User Info</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="css/images/favicon.png">
+<!-- Le styles -->
+<link href="js/plugins/chosen/chosen/chosen.css" rel="stylesheet">
+<link href="css/twitter/bootstrap.css" rel="stylesheet">
+<link href="css/base.css" rel="stylesheet">
+<link href="css/twitter/responsive.css" rel="stylesheet">
+<link href="css/jquery-ui-1.8.23.custom.css" rel="stylesheet">
+<script src="js/plugins/modernizr.custom.32549.js"></script>
+<link rel="shortcut icon" href="css/images/favicon.png">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="loading">
+  <img src="img/ajax-loader.gif">
+</div>
+<div id="responsive_part">
+    <div>
+      <a href="index.html"></a>
+    </div>
+    <ul class="nav responsive">
+      <li>
+      <btn class="btn btn-la1rge btn-i1nfo responsive_menu icon_item" data-toggle="collapse" data-target="#sidebar">
+       <i class="icon-reorder"></i>
+      </btn>
+      </li>
+    </ul>
+</div> <!-- Responsive part -->
+
+<div id="sidebar" class="collapse"><div class="logo" style="padding-bottom:15px;">
+    <img src="img/logo.png" border="0" />
+  </div> <ul id="sidebar_menu" class="navbar nav nav-list sidebar_box">
+    <li class="accordion-group">
+    <a class="accordion-toggle widgets collapsed" data-toggle="collapse" data-parent="#sidebar_menu" href="#dashboard_menu"><strong><i class="icon-dashboard"></i> Dashboard</a></strong>
+    <ul id="dashboard_menu" class="accordion-body collapse">
+      <li><a href="dashboard.html"><i class="icon-home"></i> Dashboard Home</a></li>
+            
+    </ul>
+    </li> <li class="accordion-group">
+    <a class="accordion-toggle widgets collapsed" data-toggle="collapse" data-parent="#sidebar_menu" href="#leads_menu">
+    <strong><i class="icon-group"></i> My Clients</a></strong>
+    <ul id="leads_menu" class="accordion-body collapse"> <li><a href="view_all_active_clients.html"><i class="icon-bookmark"></i> Active Clients</a></li>
+      <li><a href="view_all_trial_clients.html"><i class="icon-bookmark-empty"></i> Trial Clients</a></li>
+      <li><a href="add_new_client.html"><i class="icon-user"></i> Add New Client</a></li>
+    </ul>
+    </li> <li class="accordion-group">
+    <a class="widgets"data-parent="#sidebar_menu" href="report_manager.html"><strong><i class="icon-bar-chart"></i> Reports</strong></a>
+    </li>
+    <li class="accordion-group">
+    <a class="accordion-toggle widgets collapsed" data-toggle="collapse" data-parent="#sidebar_menu" href="#campaigns_menu">
+    <strong><i class="icon-wrench"></i> Tools</a></strong>
+    <ul id="campaigns_menu" class="accordion-body collapse">
+      <li><a href="client_links.html"><i class="icon-link"></i> Client Links</a></li>
+      <li><a href="balance_lookup.html"><i class="icon-money"></i> Balance Lookup</a></li>
+      <li><a href="online_enrollment.html"><i class="icon-plus-sign"></i> Online Enrollment</a></li>
+      <li><a href="sub_agency_login.html"><i class="icon-external-link"></i> Create Login Link</a></li>
+      <li><a href="points_calculator.html"><i class="icon-list-alt"></i> Points Calculator</a></li>
+     </ul>
+    </li>
+    <li class="accordion-group">
+    <a class="widgets"data-parent="#sidebar_menu" href="#"><strong><i class="icon-bolt"></i> Support</strong></a>
+    </li>
+   </ul>
+  <!-- End sidebar_box -->
+    <div class="sidebar_box statistics visible-desktop" style="display:none !important;">
+    <div class="container">
+      <div class="title">
+        <i class="gicon-globe"></i> Estimated earnings
+      </div>
+      <div class="row-fluid fluid">
+        <div class="span6 pagination-centered">
+          <div class="row-fluid fluid">
+            <i class="icon-caret-up green medium span3"></i>
+            <span class="percent span3">7%</span>
+            <span class="bar1 span6">3,4,10,5,3,6,3</span>
+          </div>
+          <div class="row-fluid fluid">
+            <h2><strong>$11.37</strong></h2>
+          </div>
+          <div class="row-fluid fluid">
+             Today so far
+          </div>
+        </div>
+        <div class="span6 pagination-centered">
+          <div class="row-fluid fluid">
+            <i class="icon-caret-down red medium span3"></i>
+            <span class="percent span3">2%</span>
+            <span class="bar2 span6">1, 4, 6, 7,4, 2,4</span>
+          </div>
+          <div class="row-fluid fluid">
+            <h2><strong>$22.84</strong></h2>
+          </div>
+          <div class="row-fluid fluid">
+             Yesterday <i class="icon-question-sign muted inline" rel="tooltip" data-placement="right" data-original-title="Your total earnings accrued yesterday. This amount is an estimate that is subject to change when your earnings are verified for accuracy at the end of every month."></i>
+          </div>
+        </div>
+      </div>
+      <!-- End .title -->
+      <div class="title row-fluid fluid">
+        <i class="gicon-refresh"></i> Real time stats
+      </div>
+      <div class="row-fluid fluid">
+        <div class="span6 pagination-centered">
+          <div class="row-fluid">
+            <div id="g1" class="gauge">
+            </div>
+          </div>
+        </div>
+        <div class="span6 pagination-centered">
+          <div class="row-fluid fluid">
+            <div id="g2" class="gauge">
+            </div>
+          </div>
+        </div>
+        <!-- End row-fluid -->
+        <div class="row-fluid fluid">
+          <div id="real-time-sidebar" style="width:100%;height:65px;">
+          </div>
+        </div>
+        <div class="row-fluid fluid pagination-centered">
+           Page views <i class="icon-question-sign muted inline" rel="tooltip" data-placement="right" data-original-title="As an interesting side note, as a head without a body, I envy the dead. There's one way and only one way to determine if an animal is intelligent."></i>
+        </div>
+      </div>
+      <!-- End .title -->
+    </div>
+  </div>
+  <!-- End sidebar_box -->
+</div>
+<div id="main">
+  <div class="container">
+    <div class="container_top">
+      <div class="row-fluid ">
+          <!--div class="top_bar_stats to_hide_tablet">
+          <div class="stats">
+            <span class="title">Sales:</span> +19,77% <span class="bar_1"></span>
+          </div>
+          <div class="stats">
+            <span class="title">Visits:</span> +23,34% <span class="bar_2"></span>
+          </div>
+          <div class="stats">
+            <span class="title">New Users:</span> +2,84% <span class="bar_3"></span>
+          </div>
+        </div-->
+        
+   <div class="top_right">
+     <ul class="nav search">
+      <li>
+        <form class="form-search">
+            <div class="input-append">
+              <input type="text" class=" search-query" placeholder="Search..">
+            </div>
+        </form>
+      </li>
+    </ul>
+    <ul class="nav nav_menu">
+      <li class="dropdown">
+      <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+      <span class="icon"><img src="img/menu_top/profile-messages.png"></span><span class="notifications">3</span>
+      </a>
+      <ul class="dropdown-menu messages" aria-labelledby="dLabel">
+        <div class="container">
+          <div class="heading">
+            <span class="title"><i class="icon-comments"></i>Messages</span><span class="link"><a href="compose_message.html">Send a new message</a></span>
+          </div>
+          <ul>
+            <li>
+            <a href="#">
+            <div class="avatar">
+              <img src="img/default_profile_image_messaging.gif"/>
+            </div>
+            <div class="container">
+              <span class="name">John Smith</span>
+              <span class="message"><i class="icon-share-alt"></i>I've got a question about...<br/></span>
+              <span class="date">Aug 8</span>
+            </div>
+            </a>
+            </li>
+            <li>
+            <a href="#">
+            <div class="avatar">
+              <img src="img/default_profile_image_messaging.gif"/>
+            </div>
+            <div class="container">
+              <span class="name">Celeste Holm</span>
+              <span class="message"><i class="icon-share-alt"></i>I just invited 16... <br/></span>
+              <span class="date">Aug 6</span>
+            </div>
+            </a>
+            </li>
+            <li>
+            <a href="#">
+            <div class="avatar">
+              <img src="img/default_profile_image_messaging.gif"/>
+            </div>
+            <div class="container">
+              <span class="name">Mark Jobs</span>
+              <span class="message"><i class="icon-share-alt"></i>When does the new campaign start... <br/></span>
+              <span class="date">Jul 27</span>
+            </div>
+            </a>
+            </li>
+          </ul>
+          <div class="footer">
+            <a class="see_all" href="messaging_screen.html">See All Messages <i class="icon-chevron-right"></i></a>
+          </div>
+        </div>
+      </ul>
+      </li> <li class="dropdown">
+      <a class="dropdown-toggle administrator" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+      <span class="icon"><img src="img/menu_top/profile-avatar.png"></span><span class="title">Agencyname</span></a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li><a href="user_info.html"><i class=" icon-user"></i> Account Settings</a></li>
+        <li><a href="#"><i class=" icon-unlock"></i>Log Out</a></li>
+        <!--li><a href="#"><i class=" icon-flag"></i>Help</a></li-->
+      </ul>
+      </li>
+    </ul>
+  </div> <!-- End top-right --><div class="span4">
+         
+        </div>
+      </div>
+    </div>
+    <!-- End container_top -->
+    <div class="row-fluid">
+
+      <div class="span12">
+        <div class="box gradient">
+          <div class="title">
+            <h3>
+            <i class="icon-gear"></i>
+            <span>Account Settings</span>
+            </h3>
+          </div>
+          <div class="content">
+
+	<h5>Agency Info</h5>
+		  <form class="form-horizontal row-fluid" action="#">
+              <div class="form-row control-group row-fluid">
+                <label class="control-label span3" for="normal-field">The agency's name:</label>
+                <div class="controls span7">
+                  <input type="text" id="normal-field" class="row-fluid">
+                </div>
+              </div>
+			  
+              <div class="form-row control-group row-fluid">
+                <label class="control-label span3" for="normal-field">Your Email Address<br /></label>
+                <div class="controls span7">
+                  <input type="text" id="normal-field" class="row-fluid">
+                </div>
+              </div>
+
+               <div class="form-row control-group row-fluid">
+                <label class="control-label span3" for="normal-field">Telephone Number<br /></label>
+                <div class="controls span7">
+                  <input type="text" id="normal-field" class="row-fluid">
+                </div>
+              </div>
+		  
+              		  
+		    <div class="form-row control-group row-fluid">
+                <label class="control-label span3" for="default-select">Display Language<br /></label>
+                <div class="controls span7">
+                  <select data-placeholder="Display Language" class="chzn-select" id="default-select">
+				<option value="DK">Dansk</option>
+				<option value="DE">Deutsch</option>
+				<option value="EN" selected>English</option>
+				<option value="ES">Espa&ntilde;ol</option>
+				<option value="FR">Fran&ccedil;ais</option>
+				<option value="GE">ქართული ენა</option>
+				<option value="IT">Italiano</option>
+				<option value="PT-BR">Portugu&ecirc;s (BR)</option>
+				<option value="PT">Portugu&ecirc;s (EU)</option>
+				<option value="NO">Norsk</option>
+				<option value="TR">T&uuml;rk&ccedil;e</option>
+				<option value="">----</option>
+				<option value="">اللغة العربية</option>
+				<option value="">עִברִית</option>
+				<option value="">---</option>
+				<option value="">Need More? Contact Us.</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row control-group row-fluid">
+                <label class="control-label span3" for="default-select">Currency Agency Bills In:</label>
+                <div class="controls span7">
+                  <select data-placeholder="Choose your favorite character..." class="chzn-select" id="default-select">
+                    <option value=""></option>
+                    <option value ="AFN">Afghani - &#x60B;</option>
+                          <option value ="DZD">Algerian dinar - &#x62F;.&#x62C;</option>
+                          <option value ="ARS">Argentine peso - $</option>
+                          <option value ="AMD">Armenian dram - &#x564;&#x580;.</option>
+                          <option value ="AWG">Aruban guilder - &fnof;</option>
+                          <option value ="AUD">Australian dollar - $</option>
+                          <option value ="AZN">Azerbaijanian manat - m</option>
+                          <option value ="BSD">Bahamian dollar - $</option>
+                          <option value ="BHD">Bahraini dinar - &#x628;.&#x62F;</option>
+                          <option value ="THB">Baht - &#xE3F;</option>
+                          <option value ="PAB">Balboa - B/.</option>
+                          <option value ="BDT">Bangladeshi taka - &#x9F3;</option>
+                          <option value ="BBD">Barbados dollar - $</option>
+                          <option value ="BYR">Belarussian ruble - Br</option>
+                          <option value ="BZD">Belize dollar - $</option>
+                          <option value ="BMD">Bermudian dollar - $</option>
+                          <option value ="BOB">Boliviano - Bs.</option>
+                          <option value ="BND">Brunei dollar - $</option>
+                          <option value ="BGN">Bulgarian lev - &#x43B;&#x432;</option>
+                          <option value ="BIF">Burundian franc - Fr</option>
+                          <option value ="XOF">CFA Franc BCEAO - Fr</option>
+                          <option value ="XAF">CFA franc BEAC - Fr</option>
+                          <option value ="XPF">CFP franc - Fr</option>
+                          <option value ="CAD">Canadian dollar - $</option>
+                          <option value ="CVE">Cape Verde escudo - Esc</option>
+                          <option value ="KYD">Cayman Islands dollar - $</option>
+                          <option value ="GHS">Cedi - &#x20B5;</option>
+                          <option value ="CLP">Chilean peso - $</option>
+                          <option value ="COP">Colombian peso - $</option>
+                          <option value ="KMF">Comoro franc - Fr</option>
+                          <option value ="BAM">Convertible marks - &#x41A;&#x41C;</option>
+                          <option value ="NIO">Cordoba oro - C$</option>
+                          <option value ="CRC">Costa Rican colon - &#x20A1;</option>
+                          <option value ="HRK">Croatian kuna - kn</option>
+                          <option value ="CUP">Cuban peso - $</option>
+                          <option value ="CZK">Czech koruna - K&#x10D;</option>
+                          <option value ="GMD">Dalasi - D</option>
+                          <option value ="DKK">Danish krone - kr</option>
+                          <option value ="MKD">Denar - &#x434;&#x435;&#x43D;</option>
+                          <option value ="DJF">Djibouti franc - Fr</option>
+                          <option value ="STD">Dobra - Db</option>
+                          <option value ="DOP">Dominican peso - $</option>
+                          <option value ="XCD">East Caribbean dollar - $</option>
+                          <option value ="EGP">Egyptian pound - &#x62C;.&#x645;</option>
+                          <option value ="EUR">Euro - &euro;</option>
+                          <option value ="FKP">Falkland Islands pound - &pound;</option>
+                          <option value ="FJD">Fiji dollar - $</option>
+                          <option value ="HUF">Forint - Ft</option>
+                          <option value ="CDF">Franc Congolais - Fr</option>
+                          <option value ="GIP">Gibraltar pound - &pound;</option>
+                          <option value ="PYG">Guarani - &#x20B2;</option>
+                          <option value ="GNF">Guinea franc - Fr</option>
+                          <option value ="GYD">Guyana dollar - $</option>
+                          <option value ="HTG">Haiti gourde - G</option>
+                          <option value ="HKD">Hong Kong dollar - $</option>
+                          <option value ="UAH">Hryvnia - &#x20B4;</option>
+                          <option value ="ISK">Iceland krona - kr</option>
+                          <option value ="INR">Indian rupee - &#x20A8;</option>
+                          <option value ="IDR">Indonesian Rupiah - Rp</option>
+                          <option value ="IRR">Iranian rial - &#xFDFC;</option>
+                          <option value ="IQD">Iraqi dinar - &#x639;.&#x62F;</option>
+                          <option value ="JMD">Jamaican dollar - $</option>
+                          <option value ="JPY">Japanese yen - &yen;</option>
+                          <option value ="JOD">Jordanian dinar - J.D.</option>
+                          <option value ="KES">Kenyan shilling - Sh</option>
+                          <option value ="PGK">Kina - K</option>
+                          <option value ="LAK">Kip - &#x20AD;</option>
+                          <option value ="KWD">Kuwaiti dinar - &#x62F;.&#x643</option>
+                          <option value ="MWK">Kwacha - MK</option>
+                          <option value ="ZMK">Kwacha - ZK</option>
+                          <option value ="AOA">Kwanza - Kz</option>
+                          <option value ="MMK">Kyat - K</option>
+                          <option value ="GEL">Lari - &#x10DA;</option>
+                          <option value ="LVL">Latvian lats - Ls</option>
+                          <option value ="LBP">Lebanese pound - LBP</option>
+                          <option value ="ALL">Lek - L</option>
+                          <option value ="HNL">Lempira - L</option>
+                          <option value ="SLL">Leone - Le</option>
+                          <option value ="LRD">Liberian dollar - $</option>
+                          <option value ="LYD">Libyan dinar - &#x644;.&#x62F;</option>
+                          <option value ="SZL">Lilangeni - L</option>
+                          <option value ="LTL">Lithuanian litas - Lt</option>
+                          <option value ="LSL">Loti - L</option>
+                          <option value ="MGA">Malagasy ariary - $</option>
+                          <option value ="MYR">Malaysian ringgit - RM</option>
+                          <option value ="TMM">Manat - m</option>
+                          <option value ="MUR">Mauritius rupee - &#x20A8;</option>
+                          <option value ="MZN">Metical - MTn</option>
+                          <option value ="MXN">Mexican peso - $</option>
+                          <option value ="MDL">Moldovan leu - L</option>
+                          <option value ="MAD">Moroccan dirham - &#x62F;.&#x625;</option>
+                          <option value ="NGN">Naira - &#x20A6;</option>
+                          <option value ="ERN">Nakfa - Nfk</option>
+                          <option value ="NAD">Namibian dollar - $</option>
+                          <option value ="NPR">Nepalese rupee - &#x20A8;</option>
+                          <option value ="ANG">Netherlands Antillian guilder - &fnof;</option>
+                          <option value ="ILS">New Israeli shekel - &#x20AA;</option>
+                          <option value ="TWD">New Taiwan dollar - $</option>
+                          <option value ="TRY">New Turkish lira - &#x20A4;</option>
+                          <option value ="NZD">New Zealand dollar - $</option>
+                          <option value ="BTN">Ngultrum - &#x20AB;</option>
+                          <option value ="KPW">North Korean won - &#x20A9;</option>
+                          <option value ="NOK">Norwegian krone - kr</option>
+                          <option value ="PEN">Nuevo sol - S/.</option>
+                          <option value ="MRO">Ouguiya - UM</option>
+                          <option value ="TOP">Pa&#x27;anga - T$</option>
+                          <option value ="PKR">Pakistan rupee - Rs.</option>
+                          <option value ="MOP">Pataca - P</option>
+                          <option value ="UYU">Peso Uruguayo - $</option>
+                          <option value ="PHP">Philippine peso - &#x20B1;</option>
+                          <option value ="GBP">Pound sterling - &pound;</option>
+                          <option value ="BWP">Pula - P</option>
+                          <option value ="QAR">Qatari rial - &#x631;.&#x642;</option>
+                          <option value ="GTQ">Quetzal - Q</option>
+                          <option value ="BRL">Real - R$</option>
+                          <option value ="CNY">Renminbi - &yen;</option>
+                          <option value ="OMR">Rial Omani - &#x631;.&#x639;.</option>
+                          <option value ="KHR">Riel - &#x17DB;</option>
+                          <option value ="RON">Romanian new leu - L</option>
+                          <option value ="MVR">Rufiyaa - &#x783;.</option>
+                          <option value ="RUB">Russian ruble - &#x440;.</option>
+                          <option value ="RWF">Rwanda franc - Fr</option>
+                          <option value ="SHP">Saint Helena pound - &pound;</option>
+                          <option value ="WST">Samoan tala - T</option>
+                          <option value ="SAR">Saudi riyal - &#x631;.&#x633;</option>
+                          <option value ="RSD">Serbian dinar - &#x434;&#x438;&#x43D;.</option>
+                          <option value ="SCR">Seychelles rupee - &#x20A8;</option>
+                          <option value ="SGD">Singapore dollar - $</option>
+                          <option value ="SKK">Slovak koruna - Sk</option>
+                          <option value ="SBD">Solomon Islands dollar - $</option>
+                          <option value ="SOS">Somali shilling - Sh</option>
+                          <option value ="TJS">Somoni - &#x405;&#x41C;</option>
+                          <option value ="ZAR">South African rand - R</option>
+                          <option value ="KRW">South Korean won - &#x20A9;</option>
+                          <option value ="LKR">Sri Lanka rupee - &#xBB0;&#xBC2;</option>
+                          <option value ="SDG">Sudanese pound - &pound;</option>
+                          <option value ="SRD">Surinam dollar - $</option>
+                          <option value ="SEK">Swedish krona - kr</option>
+                          <option value ="CHF">Swiss franc - CHF</option>
+                          <option value ="SYP">Syrian pound - &#x644;.&#x633;</option>
+                          <option value ="TZS">Tanzanian shilling - Sh</option>
+                          <option value ="KZT">Tenge - &#x3012;</option>
+                          <option value ="TTD">Trinidad and Tobago dollar - $</option>
+                          <option value ="MNT">Tugrik - &#x20AE;</option>
+                          <option value ="TND">Tunisian dinar - &#x62F;.&#x62A;</option>
+                          <option value ="USD" selected="selected">US dollar - $</option>
+                          <option value ="UGX">Uganda shilling - Sh</option>
+                          <option value ="AED">United Arab Emirates dirham - AED</option>
+                          <option value ="VUV">Vatu - Vt</option>
+                          <option value ="VEF">Venezuelan bolivar - Bs</option>
+                          <option value ="YER">Yemeni rial - &#xFDFC;</option>
+                          <option value ="ZWD">Zimbabwe dollar - $</option>
+                          <option value ="PLN">Zloty - z&#x142;</option>
+                  </select>
+                </div>
+              </div>
+
+			  <h5>Agency Logo</h5>
+
+         <div class="form-row control-group row-fluid">
+                <label class="control-label span3" for="search-input">Upload Agency Logo
+</label>
+                <div class="controls span7">
+                  <div class="input-append row-fluid">
+                    <input type="file" class="spa1n6 fileinput" id="search-input">
+                  </div>
+                </div>
+              </div>
+
+        <h5>Agency Preferences</h5>
+
+         <div class="form-row control-group row-fluid">
+                <label class="control-label span3">Auto-Activate Trial Clients?</label>
+                <div class="controls span7">
+                  <label class="inline radio">
+                  <input type="radio" name="radio2" value="hi"/> Yes </label>
+                  <label class="inline radio">
+                  <input type="radio" name="radio2" value="feedback" checked="CHECKED"/> No </label>
+                  <p>Choosing "No" prevents Trial clients from signing-up more than 10 customers without permision.</p>
+                </div>
+
+              </div>
+
+        <h5>Login Credentials</h5>
+
+        <div class="form-row control-group row-fluid">
+                <label class="control-label span3" for="normal-field">Your Agency ID:<br /></label>
+                <div class="controls span7">
+                  <strong>testagency</strong>
+                </div>
+              </div>
+
+              <div class="form-row control-group row-fluid"><label class="control-label  span8" for="normal-field">Changing the password is optional.  If you change it, use a combination of letters, numbers, and "_" only.</label></div>
+
+              <div class="form-row control-group row-fluid">
+                <label class="control-label span3" for="normal-field">New Password</label>
+                <div class="controls span7">
+                  <input type="password" id="normal-field" class="row-fluid">
+                </div>
+              </div>
+
+              <div class="form-row control-group row-fluid">
+                <label class="control-label span3" for="normal-field">Re-type New Password</label>
+                <div class="controls span7">
+                  <input type="password" id="normal-field" class="row-fluid">
+                </div>
+              </div>
+
+              
+              
+              <div class="form-actions">
+                                 <button type="submit" class="btn btn-success">Save Changes</button>
+                                 <button type="button" class="btn">Cancel</button>
+                              </div>
+			</form>
+
+		  
+          </div>
+        </div>
+        <!-- End .box -->
+      </div>
+      <!-- End .span12 -->
+    </div>
+    
+  </div>
+  <!-- End #container -->
+  <div id="footer">
+    
+    <!--span class="company_logo"><a href="http://www.pixelgrade.com"></a></span-->
+  </div>
+</div>
+</div>
+<!-- /container -->
+<!-- Le javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/jquery.sparkline.min.js"></script>
+<script src="js/bootstrap-transition.js"></script>
+<script src="js/bootstrap-alert.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-dropdown.js"></script>
+<script src="js/bootstrap-scrollspy.js"></script>
+<script src="js/bootstrap-tab.js"></script>
+<script src="js/bootstrap-tooltip.js"></script>
+<script src="js/bootstrap-popover.js"></script>
+<script src="js/bootstrap-button.js"></script>
+<script src="js/bootstrap-collapse.js"></script>
+<script src="js/bootstrap-carousel.js"></script>
+<script src="js/bootstrap-typeahead.js"></script>
+
+<script src="js/fileinput.jquery.js"></script>
+<script src="js/jquery-ui-1.8.23.custom.min.js"></script>
+<script src="js/jquery.touchdown.js"></script>
+<!-- Textarea editor https://github.com/jhollingworth/bootstrap-wysihtml5/ -->
+<script src="js/plugins/justGage.1.0.1/resources/js/raphael.2.1.0.min.js"></script>
+<script src="js/plugins/justGage.1.0.1/resources/js/justgage.1.0.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/wysihtml5-0.3.0.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/bootstrap-wysihtml5.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/jquery.peity.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/jquery.uniform.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/textarea-autogrow.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/character-limit.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/jquery.maskedinput-1.3.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/chosen/chosen/chosen.jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/bootstrap-datepicker.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/bootstrap-colorpicker.js"></script>
+
+<script language="javascript" type="text/javascript" src="js/plugins/flot/jquery.flot.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/flot/jquery.flot.stack.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/flot/jquery.flot.pie.js"></script>
+<script language="javascript" type="text/javascript" src="js/plugins/flot/jquery.flot.resize.js"></script>
+
+<script src="js/scripts.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input:checkbox, input:radio, input:file").uniform();
+        $('textarea.autogrow').autogrow();
+        var elem = $("#chars");
+        $("#text").limiter(100, elem);
+        // Mask plugin http://digitalbush.com/projects/masked-input-plugin/
+        $("#mask-phone").mask("(999) 999-9999");
+        $("#mask-date").mask("99-99-9999");
+        $("#mask-int-phone").mask("+33 999 999 999");
+        $("#mask-tax-id").mask("99-9999999");
+        $("#mask-percent").mask("99%");
+        // Editor plugin https://github.com/jhollingworth/bootstrap-wysihtml5/
+        $('#editor1').wysihtml5({
+          "image": false,
+          "link": false
+          });
+        // Chosen select plugin
+        $(".chzn-select").chosen({
+          disable_search_threshold: 10
+        });
+        // Datepicker
+        $('#datepicker1').datepicker({
+          format: 'mm-dd-yyyy'
+        });
+        $('#datepicker2').datepicker();
+        $('.colorpicker').colorpicker()
+        $('#colorpicker3').colorpicker();
+    });
+    </script>
+<script type='text/javascript'>
+    $(window).load(function() {
+     $('#loading').fadeOut();
+    });
+
+ $(document).ready(function() {
+      $('body').css('display', 'none');
+      $('body').fadeIn(500);
+
+      $("#logo a, #sidebar_menu a:not(.accordion-toggle), a.ajx").click(function() {
+      event.preventDefault();
+      newLocation = this.href;
+      $('body').fadeOut(500, newpage);
+      });
+      function newpage() {
+      window.location = newLocation;
+      }
+});
+</script>
+
+</body>
+</html>
